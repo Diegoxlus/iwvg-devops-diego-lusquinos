@@ -1,0 +1,12 @@
+language: java
+branches:
+  only:
+    - develop
+    - "/^release-[0-999].[0-999]$/"
+    - master
+notifications:
+  email:
+    recipients:
+      - lusky1996@gmail.com
+script:
+  - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
