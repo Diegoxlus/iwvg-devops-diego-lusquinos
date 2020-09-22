@@ -58,6 +58,58 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
+    public boolean isProper(){
+        return this.numerator<this.denominator;
+    }
+
+    public boolean isImproper(){
+        return this.numerator>this.denominator;
+    }
+
+    public boolean isEquivalent(Fraction fraction){
+        return this.numerator*fraction.denominator == this.denominator*fraction.numerator;
+    }
+
+    public Fraction add(Fraction fraction){
+        int denominator = mcm(this.denominator,fraction.denominator);
+        int numerator = (denominator/this.denominator*this.numerator)+(denominator/fraction.denominator*fraction.numerator);
+        return new Fraction(numerator,denominator);
+    }
+
+    private int mcm(int number1, int number2){
+        int mcm = 0;
+        int numMax = Math.max(number1,number2);
+        int numMin = Math.min(number1,number2);
+        mcm = (numMax/mcd(numMax,numMin))*numMin;
+        return mcm;
+    }
+
+    public  int mcd(int num1, int num2) {
+        int mcd = 0;
+        int a = Math.max(num1, num2);
+        int b = Math.min(num1, num2);
+        do {
+            mcd = b;
+            b = a % b;
+            a = mcd;
+        } while (b != 0);
+        return mcd;
+    }
+
+
+        public Fraction multiply(Fraction f){
+        return new Fraction(this.numerator*f.numerator, this.denominator*f.denominator);
+    }
+
+    public Fraction divide(Fraction f){
+        return new Fraction(this.numerator*f.denominator, this.denominator*f.numerator);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return (this.numerator == ((Fraction)obj).numerator) && (this.denominator == ((Fraction)obj).denominator);
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
