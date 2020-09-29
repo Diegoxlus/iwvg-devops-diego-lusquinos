@@ -12,13 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class UserTest {
+    User emptyUser;
     private User user;
-    private List<Fraction> listFractions;
     private List<Fraction> listFractionsTest;
 
     @BeforeEach
     void before(){
-        listFractions = new ArrayList<>();
+
+        List<Fraction> listFractions = new ArrayList<>();
         listFractionsTest = new ArrayList<>();
         listFractions.add(new Fraction(1,1));
         listFractions.add(new Fraction(1,2));
@@ -27,7 +28,8 @@ class UserTest {
         listFractionsTest.add(new Fraction(1,2));
         listFractionsTest.add(new Fraction(1,2));
 
-        user = new User("0D","Diego","Lusquiños",listFractions);
+        emptyUser= new User();
+        user = new User("0D","Diego","Lusquiños", listFractions);
         user.addFraction(new Fraction(1,2));
     }
 
@@ -46,6 +48,11 @@ class UserTest {
      void testGetId(){
          assertEquals("0D",this.user.getId());
      }
+
+    @Test
+    void testEmptyConstructor(){
+        assertEquals(emptyUser.getFractions().size(),0);
+    }
 
     @Test
     void testGetName(){

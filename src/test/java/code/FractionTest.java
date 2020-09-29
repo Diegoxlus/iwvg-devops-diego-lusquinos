@@ -18,14 +18,21 @@ import static org.junit.jupiter.api.Assertions.*;
         fraction3 = new Fraction(1,6);
     }
 
+     @Test
+     void testEmptyConstructor(){
+         assertEquals(new Fraction(),new Fraction(1,1));
+     }
+
     @Test
     void testFractionIsProper(){
         assertEquals(true,fraction.isProper());
+        assertEquals(false,fraction2.isProper());
     }
 
     @Test
     void testFractionIsImProper(){
         assertEquals(false,fraction.isImproper());
+        assertEquals(false,fraction2.isImproper());
     }
 
     @Test
@@ -35,10 +42,29 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
     @Test
-    void testAdd(){
-        assertEquals(new Fraction(10,6),fraction.add(fraction2));
-        assertEquals(new Fraction(5,6),fraction.add(fraction3));
+    void testSetNumerator(){
+        fraction.setNumerator(1);
+        assertEquals(fraction, new Fraction(1,2));
     }
+
+     @Test
+     void testSetDenominator(){
+         fraction.setDenominator(5);
+         assertEquals(fraction, new Fraction(2,5));
+     }
+
+     @Test
+     void testDecimal(){
+         assertEquals(1,fraction.decimal());
+     }
+
+
+     @Test
+     void testAdd(){
+         assertEquals(new Fraction(10,6),fraction.add(fraction2));
+         assertEquals(new Fraction(5,6),fraction.add(fraction3));
+     }
+
 
     @Test
     void testMultiply(){
@@ -56,7 +82,7 @@ import static org.junit.jupiter.api.Assertions.*;
     void testEquals(){
         assertEquals(fraction, new Fraction(2, 3));
         assertNotEquals(fraction, fraction3);
-        assertNotEquals(null, fraction);
+        assertEquals(false, fraction.equals(null));
 
     }
 
