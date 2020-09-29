@@ -71,9 +71,9 @@ public class Fraction {
     }
 
     public Fraction add(Fraction fraction){
-        int denominator = mcm(this.denominator,fraction.denominator);
-        int numerator = (denominator/this.denominator*this.numerator)+(denominator/fraction.denominator*fraction.numerator);
-        return new Fraction(numerator,denominator);
+        int newDenominator = mcm(this.denominator,fraction.denominator);
+        int newNumerator = (newDenominator/this.denominator*this.numerator)+(newDenominator/fraction.denominator*fraction.numerator);
+        return new Fraction(newNumerator,newDenominator);
     }
 
     private int mcm(int number1, int number2){
@@ -107,7 +107,13 @@ public class Fraction {
 
     @Override
     public boolean equals(Object obj) {
+        if(obj==null) return false;
         return (this.numerator == ((Fraction)obj).numerator) && (this.denominator == ((Fraction)obj).denominator);
+    }
+
+    @Override
+    public int hashCode() {
+        return denominator * 31 + numerator;
     }
 
     @Override
