@@ -108,7 +108,7 @@ public class Fraction {
     @Override
     public boolean equals(Object obj) {
         if(obj==null) return false;
-        return (this.numerator == ((Fraction)obj).numerator) && (this.denominator == ((Fraction)obj).denominator);
+        return this.hashCode() == obj.hashCode();
     }
 
     @Override
