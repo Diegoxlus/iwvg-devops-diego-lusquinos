@@ -56,6 +56,8 @@ import static org.junit.jupiter.api.Assertions.*;
     void testEquals(){
         assertEquals(fraction, new Fraction(2, 3));
         assertNotEquals(fraction, fraction3);
+        assertNotEquals(null, fraction);
+
     }
 
     @Test
