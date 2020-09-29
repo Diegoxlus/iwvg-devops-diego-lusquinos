@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
     void testSetNumerator(){
         fraction.setNumerator(1);
-        assertEquals(fraction, new Fraction(1,2));
+        assertEquals(fraction, new Fraction(1,3));
     }
 
      @Test
@@ -55,7 +55,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
      @Test
      void testDecimal(){
-         assertEquals(1,fraction.decimal());
+         assertEquals(1,fraction2.decimal());
      }
 
 
