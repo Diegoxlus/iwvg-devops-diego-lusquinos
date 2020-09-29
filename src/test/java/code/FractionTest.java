@@ -3,9 +3,10 @@ package code;
 import es.upm.miw.iwvg_devops.code.Fraction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FractionTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+ class FractionTest {
     private Fraction fraction;
     private Fraction fraction2;
     private Fraction fraction3;
@@ -50,6 +51,29 @@ public class FractionTest {
         assertEquals(new Fraction(4,6),fraction.divide(fraction2));
         assertEquals(new Fraction(12,3),fraction.divide(fraction3));
     }
+
+    @Test
+    void testEquals(){
+        assertEquals(fraction, new Fraction(2, 3));
+        assertNotEquals(fraction, fraction3);
+    }
+
+    @Test
+    void testHashCode(){
+        assertEquals(fraction.hashCode(), new Fraction(2, 3).hashCode());
+        assertNotEquals(fraction.hashCode(), fraction3.hashCode());
+    }
+
+     @Test
+     void testToString(){
+        String textToString = "Fraction{" +
+                "numerator=" + fraction.getNumerator() +
+                ", denominator=" + fraction.getDenominator() +
+                '}';
+
+         assertEquals(textToString,fraction.toString());
+
+     }
 
 
 
