@@ -50,7 +50,7 @@ class UserTest {
 
     @Test
     void testEmptyConstructor(){
-        assertEquals(emptyUser.getFractions().size(),0);
+        assertEquals(0,emptyUser.getFractions().size());
     }
 
     @Test
