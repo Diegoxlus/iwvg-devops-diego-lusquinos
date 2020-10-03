@@ -4,86 +4,87 @@ import es.upm.miw.iwvg_devops.code.Fraction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
- class FractionTest {
+class FractionTest {
     private Fraction fraction;
     private Fraction fraction2;
     private Fraction fraction3;
-     private Fraction fraction4;
+    private Fraction fraction4;
 
 
-     @BeforeEach
-    void before(){
-        fraction = new Fraction(2,3);
-        fraction2 = new Fraction(2,2);
-        fraction3 = new Fraction(1,6);
-        fraction4 = new Fraction(10,6);
-    }
-
-     @Test
-     void testEmptyConstructor(){
-         assertEquals(new Fraction(),new Fraction(1,1));
-     }
-
-    @Test
-    void testFractionIsProper(){
-        assertEquals(true,fraction.isProper());
-        assertEquals(false,fraction2.isProper());
+    @BeforeEach
+    void before() {
+        fraction = new Fraction(2, 3);
+        fraction2 = new Fraction(2, 2);
+        fraction3 = new Fraction(1, 6);
+        fraction4 = new Fraction(10, 6);
     }
 
     @Test
-    void testFractionIsImProper(){
-        assertEquals(false,fraction.isImproper());
-        assertEquals(false,fraction2.isImproper());
-        assertEquals(true,fraction4.isImproper());
+    void testEmptyConstructor() {
+        assertEquals(new Fraction(), new Fraction(1, 1));
     }
 
     @Test
-    void testFractionIsEquivalent(){
-        assertEquals(false,fraction.isEquivalent(fraction2));
-        assertEquals(true,fraction.isEquivalent(fraction));
+    void testFractionIsProper() {
+        assertEquals(true, fraction.isProper());
+        assertEquals(false, fraction2.isProper());
     }
 
     @Test
-    void testSetNumerator(){
+    void testFractionIsImProper() {
+        assertEquals(false, fraction.isImproper());
+        assertEquals(false, fraction2.isImproper());
+        assertEquals(true, fraction4.isImproper());
+    }
+
+    @Test
+    void testFractionIsEquivalent() {
+        assertEquals(false, fraction.isEquivalent(fraction2));
+        assertEquals(true, fraction.isEquivalent(fraction));
+    }
+
+    @Test
+    void testSetNumerator() {
         fraction.setNumerator(1);
-        assertEquals(fraction, new Fraction(1,3));
-    }
-
-     @Test
-     void testSetDenominator(){
-         fraction.setDenominator(5);
-         assertEquals(fraction, new Fraction(2,5));
-     }
-
-     @Test
-     void testDecimal(){
-         assertEquals(1,fraction2.decimal());
-     }
-
-
-     @Test
-     void testAdd(){
-         assertEquals(new Fraction(10,6),fraction.add(fraction2));
-         assertEquals(new Fraction(5,6),fraction.add(fraction3));
-     }
-
-
-    @Test
-    void testMultiply(){
-        assertEquals(new Fraction(4,6),fraction.multiply(fraction2));
-        assertEquals(new Fraction(2,18),fraction.multiply(fraction3));
+        assertEquals(fraction, new Fraction(1, 3));
     }
 
     @Test
-    void testDivide(){
-        assertEquals(new Fraction(4,6),fraction.divide(fraction2));
-        assertEquals(new Fraction(12,3),fraction.divide(fraction3));
+    void testSetDenominator() {
+        fraction.setDenominator(5);
+        assertEquals(fraction, new Fraction(2, 5));
     }
 
     @Test
-    void testEquals(){
+    void testDecimal() {
+        assertEquals(1, fraction2.decimal());
+    }
+
+
+    @Test
+    void testAdd() {
+        assertEquals(new Fraction(10, 6), fraction.add(fraction2));
+        assertEquals(new Fraction(5, 6), fraction.add(fraction3));
+    }
+
+
+    @Test
+    void testMultiply() {
+        assertEquals(new Fraction(4, 6), fraction.multiply(fraction2));
+        assertEquals(new Fraction(2, 18), fraction.multiply(fraction3));
+    }
+
+    @Test
+    void testDivide() {
+        assertEquals(new Fraction(4, 6), fraction.divide(fraction2));
+        assertEquals(new Fraction(12, 3), fraction.divide(fraction3));
+    }
+
+    @Test
+    void testEquals() {
         assertEquals(fraction, new Fraction(2, 3));
         assertNotEquals(fraction, fraction3);
         assertEquals(false, fraction.equals(null));
@@ -91,25 +92,21 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
     @Test
-    void testHashCode(){
+    void testHashCode() {
         assertEquals(fraction.hashCode(), new Fraction(2, 3).hashCode());
         assertNotEquals(fraction.hashCode(), fraction3.hashCode());
     }
 
-     @Test
-     void testToString(){
+    @Test
+    void testToString() {
         String textToString = "Fraction{" +
                 "numerator=" + fraction.getNumerator() +
                 ", denominator=" + fraction.getDenominator() +
                 '}';
 
-         assertEquals(textToString,fraction.toString());
+        assertEquals(textToString, fraction.toString());
 
-     }
-
-
-
-
+    }
 
 
 }

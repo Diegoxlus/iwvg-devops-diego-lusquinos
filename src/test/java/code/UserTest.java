@@ -16,92 +16,92 @@ class UserTest {
     private List<Fraction> listFractionsTest;
 
     @BeforeEach
-    void before(){
+    void before() {
 
         List<Fraction> listFractions = new ArrayList<>();
         listFractionsTest = new ArrayList<>();
-        listFractions.add(new Fraction(1,1));
-        listFractions.add(new Fraction(1,2));
+        listFractions.add(new Fraction(1, 1));
+        listFractions.add(new Fraction(1, 2));
 
-        listFractionsTest.add(new Fraction(1,1));
-        listFractionsTest.add(new Fraction(1,2));
-        listFractionsTest.add(new Fraction(1,2));
+        listFractionsTest.add(new Fraction(1, 1));
+        listFractionsTest.add(new Fraction(1, 2));
+        listFractionsTest.add(new Fraction(1, 2));
 
-        emptyUser= new User();
-        user = new User("0D","Diego","Lusquiños", listFractions);
-        user.addFraction(new Fraction(1,2));
+        emptyUser = new User();
+        user = new User("0D", "Diego", "Lusquiños", listFractions);
+        user.addFraction(new Fraction(1, 2));
     }
 
     @Test
-    void testToString(){
+    void testToString() {
         String textToString = "User{" +
                 "id='" + this.user.getId() + '\'' +
                 ", name='" + this.user.getName() + '\'' +
                 ", familyName='" + this.user.getFamilyName() + '\'' +
                 ", fractions=" + this.user.getFractions() +
                 '}';
-        assertEquals(textToString,this.user.toString());
+        assertEquals(textToString, this.user.toString());
 
-    }
-     @Test
-     void testGetId(){
-         assertEquals("0D",this.user.getId());
-     }
-
-    @Test
-    void testEmptyConstructor(){
-        assertEquals(0,emptyUser.getFractions().size());
     }
 
     @Test
-    void testGetName(){
-        assertEquals("Diego",this.user.getName());
+    void testGetId() {
+        assertEquals("0D", this.user.getId());
     }
+
     @Test
-    void testSetName(){
+    void testEmptyConstructor() {
+        assertEquals(0, emptyUser.getFractions().size());
+    }
+
+    @Test
+    void testGetName() {
+        assertEquals("Diego", this.user.getName());
+    }
+
+    @Test
+    void testSetName() {
         this.user.setName("New");
-        assertEquals("New",this.user.getName());
+        assertEquals("New", this.user.getName());
     }
 
 
     @Test
-    void testGetFamilyName(){
-        assertEquals("Lusquiños",this.user.getFamilyName());
+    void testGetFamilyName() {
+        assertEquals("Lusquiños", this.user.getFamilyName());
     }
 
     @Test
-    void testGetFractionList(){
-        assertEquals(this.listFractionsTest,this.user.getFractions());
+    void testGetFractionList() {
+        assertEquals(this.listFractionsTest, this.user.getFractions());
     }
 
     @Test
-    void testSetFractions(){
+    void testSetFractions() {
         this.user.setFractions(this.listFractionsTest);
-        assertEquals(this.listFractionsTest,this.user.getFractions());
+        assertEquals(this.listFractionsTest, this.user.getFractions());
     }
 
     @Test
-    void addFraction(){
-        assertEquals(3,this.user.getFractions().size());
+    void addFraction() {
+        assertEquals(3, this.user.getFractions().size());
     }
 
     @Test
-    void testFullName(){
-        assertEquals("Diego Lusquiños",this.user.fullName());
+    void testFullName() {
+        assertEquals("Diego Lusquiños", this.user.fullName());
     }
 
     @Test
-    void testSetFamilyName(){
+    void testSetFamilyName() {
         this.user.setFamilyName("New");
-        assertEquals("New",this.user.getFamilyName());
+        assertEquals("New", this.user.getFamilyName());
     }
 
     @Test
-    void initials(){
-        assertEquals("D.",this.user.initials());
+    void initials() {
+        assertEquals("D.", this.user.initials());
     }
-
-
 
 
 }

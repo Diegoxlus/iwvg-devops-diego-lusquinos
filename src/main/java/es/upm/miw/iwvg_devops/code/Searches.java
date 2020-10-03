@@ -2,7 +2,7 @@ package es.upm.miw.iwvg_devops.code;
 
 public class Searches {
 
-    public Double findFirstDecimalFractionByUserName(String name){
+    public Double findFirstDecimalFractionByUserName(String name) {
         return new UsersDatabase().findAll()
                 .filter(user -> name.equals(user.getName()))
                 .flatMap(user -> user.getFractions().stream())
@@ -10,7 +10,8 @@ public class Searches {
                 .findFirst()
                 .orElse(null);
     }
-    public Fraction findFractionDivisionByUserId(String id){
+
+    public Fraction findFractionDivisionByUserId(String id) {
         return new UsersDatabase().findAll()
                 .filter(user -> id.equals(user.getId()))
                 .flatMap(user -> user.getFractions().stream())
@@ -18,7 +19,7 @@ public class Searches {
                 .orElse(null);
     }
 
-    public Fraction findFractionSubtractionByUserName(String name){
+    public Fraction findFractionSubtractionByUserName(String name) {
         return new UsersDatabase().findAll()
                 .filter(user -> name.equals(user.getName()))
                 .limit(1)
@@ -27,7 +28,7 @@ public class Searches {
                 .orElse(null);
     }
 
-    public Fraction findFractionAdditionByUserId(String id){
+    public Fraction findFractionAdditionByUserId(String id) {
         return new UsersDatabase().findAll()
                 .filter(user -> id.equals(user.getId()))
                 .limit(1)
