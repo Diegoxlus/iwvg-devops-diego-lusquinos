@@ -101,7 +101,7 @@ public class Fraction {
         return new Fraction(this.numerator*f.numerator, this.denominator*f.denominator);
     }
 
-    public Fraction divide(Fraction f){
+    public Fraction division(Fraction f){
         return new Fraction(this.numerator*f.denominator, this.denominator*f.numerator);
     }
 
@@ -122,5 +122,11 @@ public class Fraction {
                 "numerator=" + numerator +
                 ", denominator=" + denominator +
                 '}';
+    }
+
+    Fraction substraction(Fraction fraction) {
+        int newDenominator = mcm(this.denominator,fraction.denominator);
+        int newNumerator = (newDenominator/this.denominator*this.numerator)-(newDenominator/fraction.denominator*fraction.numerator);
+        return new Fraction(newNumerator,newDenominator);
     }
 }
