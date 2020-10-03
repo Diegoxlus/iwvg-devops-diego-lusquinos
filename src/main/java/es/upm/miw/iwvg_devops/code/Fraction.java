@@ -1,4 +1,5 @@
 package es.upm.miw.iwvg_devops.code;
+
 /**
  * Conceptos: Las fracciones propias son aquellas cuyo numerador es menor que el denominador
  * <p>
@@ -58,33 +59,33 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
-    public boolean isProper(){
-        return this.numerator<this.denominator;
+    public boolean isProper() {
+        return this.numerator < this.denominator;
     }
 
-    public boolean isImproper(){
-        return this.numerator>this.denominator;
+    public boolean isImproper() {
+        return this.numerator > this.denominator;
     }
 
-    public boolean isEquivalent(Fraction fraction){
-        return this.numerator*fraction.denominator == this.denominator*fraction.numerator;
+    public boolean isEquivalent(Fraction fraction) {
+        return this.numerator * fraction.denominator == this.denominator * fraction.numerator;
     }
 
-    public Fraction add(Fraction fraction){
-        int newDenominator = mcm(this.denominator,fraction.denominator);
-        int newNumerator = (newDenominator/this.denominator*this.numerator)+(newDenominator/fraction.denominator*fraction.numerator);
-        return new Fraction(newNumerator,newDenominator);
+    public Fraction add(Fraction fraction) {
+        int newDenominator = mcm(this.denominator, fraction.denominator);
+        int newNumerator = (newDenominator / this.denominator * this.numerator) + (newDenominator / fraction.denominator * fraction.numerator);
+        return new Fraction(newNumerator, newDenominator);
     }
 
-    private int mcm(int number1, int number2){
+    private int mcm(int number1, int number2) {
         int mcm = 0;
-        int numMax = Math.max(number1,number2);
-        int numMin = Math.min(number1,number2);
-        mcm = (numMax/mcd(numMax,numMin))*numMin;
+        int numMax = Math.max(number1, number2);
+        int numMin = Math.min(number1, number2);
+        mcm = (numMax / mcd(numMax, numMin)) * numMin;
         return mcm;
     }
 
-    public  int mcd(int num1, int num2) {
+    public int mcd(int num1, int num2) {
         int mcd = 0;
         int a = Math.max(num1, num2);
         int b = Math.min(num1, num2);
@@ -97,17 +98,17 @@ public class Fraction {
     }
 
 
-        public Fraction multiply(Fraction f){
-        return new Fraction(this.numerator*f.numerator, this.denominator*f.denominator);
+    public Fraction multiply(Fraction f) {
+        return new Fraction(this.numerator * f.numerator, this.denominator * f.denominator);
     }
 
-    public Fraction divide(Fraction f){
-        return new Fraction(this.numerator*f.denominator, this.denominator*f.numerator);
+    public Fraction divide(Fraction f) {
+        return new Fraction(this.numerator * f.denominator, this.denominator * f.numerator);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if(obj==null) return false;
+        if (obj == null) return false;
         return this.hashCode() == obj.hashCode();
     }
 
@@ -125,9 +126,9 @@ public class Fraction {
     }
 
     Fraction substraction(Fraction fraction) {
-        int newDenominator = mcm(this.denominator,fraction.denominator);
-        int newNumerator = (newDenominator/this.denominator*this.numerator)-(newDenominator/fraction.denominator*fraction.numerator);
-        return new Fraction(newNumerator,newDenominator);
+        int newDenominator = mcm(this.denominator, fraction.denominator);
+        int newNumerator = (newDenominator / this.denominator * this.numerator) - (newDenominator / fraction.denominator * fraction.numerator);
+        return new Fraction(newNumerator, newDenominator);
     }
 
 }
