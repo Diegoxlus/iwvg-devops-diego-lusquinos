@@ -24,6 +24,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
      void findFractionSubtractionByUserName(){
         assertEquals(new Fraction(0,-6), new Searches().findFractionSubtractionByUserName("Antonio"));
         assertEquals(new Fraction(22,60), new Searches().findFractionSubtractionByUserName("Ana"));
+    }
+    @Test
+     void findFractionAdditionByUserId(){
+        assertEquals(new Fraction(3,1), new Searches().findFractionAdditionByUserId("1"));
+        assertEquals(new Fraction(8,4), new Searches().findFractionAdditionByUserId("4"));
+
 
     }
 
