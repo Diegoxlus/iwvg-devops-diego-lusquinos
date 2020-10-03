@@ -14,7 +14,7 @@ public class Searches {
         return new UsersDatabase().findAll()
                 .filter(user -> id.equals(user.getId()))
                 .flatMap(user -> user.getFractions().stream())
-                .reduce(Fraction::division)
+                .reduce(Fraction::divide)
                 .orElse(null);
     }
 
@@ -24,6 +24,15 @@ public class Searches {
                 .limit(1)
                 .flatMap(user -> user.getFractions().stream())
                 .reduce(Fraction::substraction)
+                .orElse(null);
+    }
+
+    public Fraction findFractionAdditionByUserId(String id){
+        return new UsersDatabase().findAll()
+                .filter(user -> id.equals(user.getId()))
+                .limit(1)
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(Fraction::add)
                 .orElse(null);
     }
 

@@ -78,8 +78,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
     void testDivide(){
-        assertEquals(new Fraction(4,6),fraction.division(fraction2));
-        assertEquals(new Fraction(12,3),fraction.division(fraction3));
+        assertEquals(new Fraction(4,6),fraction.divide(fraction2));
+        assertEquals(new Fraction(12,3),fraction.divide(fraction3));
     }
 
     @Test
