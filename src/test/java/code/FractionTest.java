@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
         fraction = new Fraction(2,3);
         fraction2 = new Fraction(2,2);
         fraction3 = new Fraction(1,6);
+        fraction3 = new Fraction(10,6);
     }
 
      @Test
@@ -33,6 +34,7 @@ import static org.junit.jupiter.api.Assertions.*;
     void testFractionIsImProper(){
         assertEquals(false,fraction.isImproper());
         assertEquals(false,fraction2.isImproper());
+        assertEquals(true,fraction3.isImproper());
     }
 
     @Test
@@ -74,8 +76,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
     void testDivide(){
-        assertEquals(new Fraction(4,6),fraction.divide(fraction2));
-        assertEquals(new Fraction(12,3),fraction.divide(fraction3));
+        assertEquals(new Fraction(4,6),fraction.division(fraction2));
+        assertEquals(new Fraction(12,3),fraction.division(fraction3));
     }
 
     @Test
