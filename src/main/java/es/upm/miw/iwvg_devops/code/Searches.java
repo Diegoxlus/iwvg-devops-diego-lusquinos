@@ -18,4 +18,13 @@ public class Searches {
                 .orElse(null);
     }
 
+    public Fraction findFractionSubtractionByUserName(String name){
+        return new UsersDatabase().findAll()
+                .filter(user -> name.equals(user.getName()))
+                .limit(1)
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(Fraction::substraction)
+                .orElse(null);
+    }
+
 }

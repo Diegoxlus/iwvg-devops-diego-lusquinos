@@ -10,13 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
     private Fraction fraction;
     private Fraction fraction2;
     private Fraction fraction3;
+     private Fraction fraction4;
 
-    @BeforeEach
+
+     @BeforeEach
     void before(){
         fraction = new Fraction(2,3);
         fraction2 = new Fraction(2,2);
         fraction3 = new Fraction(1,6);
-        fraction3 = new Fraction(10,6);
+        fraction4 = new Fraction(10,6);
     }
 
      @Test
@@ -34,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.*;
     void testFractionIsImProper(){
         assertEquals(false,fraction.isImproper());
         assertEquals(false,fraction2.isImproper());
-        assertEquals(true,fraction3.isImproper());
+        assertEquals(true,fraction4.isImproper());
     }
 
     @Test
